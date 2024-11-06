@@ -48,7 +48,7 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "CI"
-            GIT_USER_NAME = "kakarakiran@gmail.com"
+            GIT_USER_NAME = "kakarakiran570@gmail.com"
         }
         steps {
             withCredentials([string(credentialsId: 'Github', variable: 'GITHUB_TOKEN')]) {
@@ -59,7 +59,7 @@ pipeline {
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" JavaMavensonarArgos-helm-K8s/spring-boot-app-manifests/deployment.yml
                     git add JavaMavensonarArgos-helm-K8s/spring-boot-app-manifests/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
-                    git push https://${GITHUB_TOKEN}@github.com/kakarakiran/CI.git HEAD:main
+                    git push https://${GITHUB_TOKEN}@github.com/kakarakiran570@gmail.com/CI.git HEAD:main
 
                 '''
             }
